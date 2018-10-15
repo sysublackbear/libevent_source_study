@@ -1,4 +1,4 @@
-#libevent(1)
+# libevent(1)
 @(源码)
 
 
@@ -169,7 +169,7 @@ signal_cb(evutil_socket_t sig, short events, void *user_data)
 ```
 
 
-###1.1.event_base_new函数
+### 1.1.event_base_new函数
 
 我们可以看到一开始执行：`base = event_base_new();`。`event_base_new`位于event.c。
 
@@ -195,7 +195,7 @@ event_base_new(void)
 }
 ```
 
-####1.1.1.event_config_new函数
+#### 1.1.1.event_config_new函数
 
 位于event.c，代码如下：
 ```cpp
@@ -241,7 +241,7 @@ event_config_new(void)
 `event_config`的数据结构，详见1.18。
 
 
-###1.2.event_base_new_with_config函数
+### 1.2.event_base_new_with_config函数
 
 位于event.c，代码如下：
 ```cpp
@@ -537,7 +537,7 @@ event_base_new_with_config(const struct event_config *cfg)
 }
 ```
 
-####1.2.1.event_base数据结构
+#### 1.2.1.event_base数据结构
 
 位于event-internal.h，代码如下：
 ```cpp
@@ -685,7 +685,7 @@ struct event_base {
 };
 ```
 
-###1.3.event_config_free函数
+### 1.3.event_config_free函数
 
 位于event.c，代码如下：
 ```cpp
@@ -834,7 +834,7 @@ event_base_free_(struct event_base *base, int run_finalizers)
 ```
 
 
-####1.2.2.evutil_configure_monotonic_time_函数
+#### 1.2.2.evutil_configure_monotonic_time_函数
 
 位于evutil_time.c，代码如下：
 
@@ -945,7 +945,7 @@ evutil_gettime_monotonic_(struct evutil_monotonic_timer *base,
 > 以前我一直想不明白，既然每个timer interrupt，jiffies和xtime都要更新，那么不都是单调递增的吗？那它们之间使用时有什么区别呢？昨天看到一篇文章，终于明白了，wall time不一定是单调递增的。因为wall time是指现实中的实际时间，如果系统要与网络中某个节点时间同步、或者由系统管理员觉得这个wall time与现实时间不一致，有可能任意的改变这个wall time。最简单的例子是，我们用户可以去任意修改系统时间，这个被修改的时间应该就是wall time，即xtime，它甚至可以被写入RTC而永久保存。一些应用软件可能就是用到了这个wall time，比如以前用vmware workstation，一启动提示试用期已过，但是只要把系统时间调整一下提前一年，再启动就不会有提示了，这很可能就是因为它启动时用gettimeofday去读wall time，然后判断是否过期，只要将wall time改一下，就可以欺骗过去了。
 
 
-####1.2.3.gettime函数
+#### 1.2.3.gettime函数
 
 位于event.c，代码如下：
 
@@ -995,7 +995,7 @@ gettime(struct event_base *base, struct timeval *tp)
 }
 ```
 
-####1.2.4.evmap_io_initmap_和evmap_signal_initmap_函数
+#### 1.2.4.evmap_io_initmap_和evmap_signal_initmap_函数
 
 当系统不是win32的时候，`event_signal_map`和`event_io_map`是相同的。
 
@@ -1061,7 +1061,7 @@ struct event_changelist {
 };
 ```
 
-####1.2.5.epoll的初始化
+#### 1.2.5.epoll的初始化
 
 位于`epoll.c`。
 
@@ -1263,7 +1263,7 @@ epoll_init(struct event_base *base)
 ```
 **注意：关于信号事件处理的机制，详见1.28~1.35。**
 
-#####1.2.5.1.epollop结构体
+##### 1.2.5.1.epollop结构体
 
 位于epoll.c，代码如下：
 
