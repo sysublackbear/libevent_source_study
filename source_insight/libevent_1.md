@@ -949,11 +949,13 @@ evutil_gettime_monotonic_(struct evutil_monotonic_timer *base,
 其中，`CLOCK_MONOTONIC`的说明如下：
 
 > 在一些系统调用中需要指定时间是用CLOCK_MONOTONIC还是CLOCK_REALTIME，以前总是搞不太清楚它们之间的差别，现在终于有所理解了。
+
 > CLOCK_MONOTONIC是monotonic time，而CLOCK_REALTIME是wall time。monotonic time字面意思是单调时间，实际上它指的是系统启动以后流逝的时间，这是由变量jiffies来记录的。系统每次启动时jiffies初始化为0，每来一个timer interrupt，jiffies加1，也就是说它代表系统启动后流逝的tick数。jiffies一定是单调递增的，因为时间不够逆嘛！wall time字面意思是挂钟时间，实际上就是指的是现实的时间，这是由变量xtime来记录的。系统每次启动时将CMOS上的RTC时间读入xtime，这个值是"自1970-01-01起经历的秒数、本秒中经历的纳秒数"，每来一个timer interrupt，也需要去更新xtime。
+
 > 以前我一直想不明白，既然每个timer interrupt，jiffies和xtime都要更新，那么不都是单调递增的吗？那它们之间使用时有什么区别呢？昨天看到一篇文章，终于明白了，wall time不一定是单调递增的。因为wall time是指现实中的实际时间，如果系统要与网络中某个节点时间同步、或者由系统管理员觉得这个wall time与现实时间不一致，有可能任意的改变这个wall time。最简单的例子是，我们用户可以去任意修改系统时间，这个被修改的时间应该就是wall time，即xtime，它甚至可以被写入RTC而永久保存。一些应用软件可能就是用到了这个wall time，比如以前用vmware workstation，一启动提示试用期已过，但是只要把系统时间调整一下提前一年，再启动就不会有提示了，这很可能就是因为它启动时用gettimeofday去读wall time，然后判断是否过期，只要将wall time改一下，就可以欺骗过去了。
 
 
-#### 1.2.3.gettime函数
+#### 1.3.3.gettime函数
 
 位于event.c，代码如下：
 
@@ -1003,7 +1005,7 @@ gettime(struct event_base *base, struct timeval *tp)
 }
 ```
 
-#### 1.2.4.evmap_io_initmap_和evmap_signal_initmap_函数
+#### 1.3.4.evmap_io_initmap_和evmap_signal_initmap_函数
 
 当系统不是win32的时候，`event_signal_map`和`event_io_map`是相同的。
 
@@ -1069,7 +1071,7 @@ struct event_changelist {
 };
 ```
 
-#### 1.2.5.epoll的初始化
+#### 1.3.5.epoll的初始化
 
 位于`epoll.c`。
 
@@ -1271,7 +1273,7 @@ epoll_init(struct event_base *base)
 ```
 **注意：关于信号事件处理的机制，详见1.28~1.35。**
 
-##### 1.2.5.1.epollop结构体
+##### 1.3.5.1.epollop结构体
 
 位于epoll.c，代码如下：
 
