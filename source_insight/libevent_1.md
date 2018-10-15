@@ -8,12 +8,19 @@ libevent的介绍如下：
 > Libevent是一个用于开发可扩展性网络服务器的基于事件驱动(event-driven)模型的网络库。Libevent有几个显著的亮点： 
 
 > (1)事件驱动（event-driven），高性能；
-> (2)轻量级，专注于网络，不如 ACE 那么臃肿庞大； 
-> (3)源代码相当精炼、易读； 
-> (4)跨平台，支持 Windows、Linux、*BSD和 Mac Os； 
-> (5)支持多种 I/O多路复用技术， epoll、poll、dev/poll、select 和kqueue 等； 
-> (6)支持 I/O，定时器和信号等事件； 
-> (7)注册事件优先级； 
+
+> (2)轻量级，专注于网络，不如 ACE 那么臃肿庞大；
+
+> (3)源代码相当精炼、易读；
+
+> (4)跨平台，支持 Windows、Linux、*BSD和 Mac Os；
+
+> (5)支持多种 I/O多路复用技术， epoll、poll、dev/poll、select 和kqueue 等；
+
+> (6)支持 I/O，定时器和信号等事件；
+
+> (7)注册事件优先级；
+
 > Libevent 已经被广泛的应用，作为底层的网络库；比如 memcached、 Vomi t、 Nylon、 Netchat等等。
 
 我们还是想阅读libco的方法一样，从sample目录入手，进行源码分析。
