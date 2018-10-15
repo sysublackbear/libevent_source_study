@@ -6,6 +6,7 @@
 
 libevent的介绍如下：
 > Libevent是一个用于开发可扩展性网络服务器的基于事件驱动(event-driven)模型的网络库。Libevent有几个显著的亮点： 
+
 > (1)事件驱动（event-driven），高性能；
 > (2)轻量级，专注于网络，不如 ACE 那么臃肿庞大； 
 > (3)源代码相当精炼、易读； 
@@ -707,7 +708,7 @@ event_config_free(struct event_config *cfg)
 做一些很简单的回收工作。
 
 
-####1.2.1.event_base_free函数
+#### 1.3.1.event_base_free函数
 
 位于1.1.`hellow-world.c`的末尾，用于回收`event_base`资源的函数。位于event.c，代码如下：
 
@@ -834,7 +835,7 @@ event_base_free_(struct event_base *base, int run_finalizers)
 ```
 
 
-#### 1.2.2.evutil_configure_monotonic_time_函数
+#### 1.3.2.evutil_configure_monotonic_time_函数
 
 位于evutil_time.c，代码如下：
 
