@@ -1,8 +1,8 @@
-#libevent(4)
+# libevent(4)
 @(源码)
 
 
-###1.19.设置event_base采用的工作模式——event_config_set_flag
+### 1.19.设置event_base采用的工作模式——event_config_set_flag
 
 位于event.c，代码如下：
 
@@ -22,7 +22,7 @@ event_config_set_flag(struct event_config *cfg, int flag)
 ```
 
 
-###1.20.设置后台方法的工作方式——event_config_require_features
+### 1.20.设置后台方法的工作方式——event_config_require_features
 
 位于event.c，代码如下：
 
@@ -42,7 +42,7 @@ event_config_require_features(struct event_config *cfg,
 ```
 
 
-###1.21.屏蔽某些后台的方法——event_config_avoid_method
+### 1.21.屏蔽某些后台的方法——event_config_avoid_method
 
 位于event.c，代码如下：
 ```cpp
@@ -68,7 +68,7 @@ event_config_avoid_method(struct event_config *cfg, const char *method)
 }
 ```
 
-###1.22.设置cpu个数提示信息——event_config_set_num_cpus_hint
+### 1.22.设置cpu个数提示信息——event_config_set_num_cpus_hint
 
 位于event.c，代码如下：
 
@@ -87,7 +87,7 @@ event_config_set_num_cpus_hint(struct event_config *cfg, int cpus)
 ```
 
 
-###1.23.设置event_base调度的一些时间间隔信息——event_config_set_max_dispatch_interval
+### 1.23.设置event_base调度的一些时间间隔信息——event_config_set_max_dispatch_interval
 
 位于event.c，代码如下：
 
@@ -132,7 +132,7 @@ event_config_set_max_dispatch_interval(struct event_config *cfg,
 ```
 
 
-###1.24.配置获取（获取当前正在使用的后台方法）——event_base_get_method
+### 1.24.配置获取（获取当前正在使用的后台方法）——event_base_get_method
 
 位于event.c，代码如下：
 
@@ -147,7 +147,7 @@ event_base_get_method(const struct event_base *base)
 }
 ```
 
-###1.25.获取当前环境支持的后台方法——event_get_supported_methods
+### 1.25.获取当前环境支持的后台方法——event_get_supported_methods
 
 位于event.c，代码如下：
 
@@ -193,7 +193,7 @@ event_get_supported_methods(void)
 ```
 
 
-###1.26.获取后台方法的工作模式——event_base_get_features
+### 1.26.获取后台方法的工作模式——event_base_get_features
 
 位于event.c，代码如下：
 
@@ -206,7 +206,7 @@ event_base_get_features(const struct event_base *base)
 }
 ```
 
-###1.27.获取event_base的优先级个数——event_base_get_npriorities函数
+### 1.27.获取event_base的优先级个数——event_base_get_npriorities函数
 
 位于event.c，代码如下：
 
