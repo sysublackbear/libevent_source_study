@@ -99,7 +99,7 @@ signal_cb(evutil_socket_t fd, short event, void *arg)
 
 我们可以看到，这里对全局变量`called`进行计数，超过了2次之后，就会自动删除事件，删除事件的逻辑之前没讲过，可以讲一下。
 
-###2.1.event_del函数
+### 2.1.event_del函数
 
 位于event.c，代码如下：
 
@@ -241,7 +241,7 @@ event_del_nolock_(struct event *ev, int blocking)
 }
 ```
 
-####2.1.1.event_queue_remove_timeout函数
+#### 2.1.1.event_queue_remove_timeout函数
 
 位于event.c，代码如下：
 
@@ -275,7 +275,7 @@ event_queue_remove_timeout(struct event_base *base, struct event *ev)
 ```
 
 
-####2.1.2.event_queue_remove_active函数
+#### 2.1.2.event_queue_remove_active函数
 
 位于event.c，代码如下：
 
@@ -304,7 +304,7 @@ event_queue_remove_active(struct event_base *base, struct event_callback *evcb)
 }
 ```
 
-####2.1.3.event_queue_remove_active_later函数
+#### 2.1.3.event_queue_remove_active_later函数
 
 实际上是从base维护的下一次激活列表中删除事件的回调函数。位于event.c，代码如下：
 
@@ -330,7 +330,7 @@ event_queue_remove_active_later(struct event_base *base, struct event_callback *
 }
 ```
 
-####2.1.4.evmap_io_del_函数
+#### 2.1.4.evmap_io_del_函数
 
 从IO事件与文件描述符的映射中删除事件，位于evmap.c，代码如下：
 
@@ -413,7 +413,7 @@ evmap_io_del_(struct event_base *base, evutil_socket_t fd, struct event *ev)
 ```
 
 
-####2.1.5.evmap_signal_del_函数
+#### 2.1.5.evmap_signal_del_函数
 
 从信号事件与信号的映射表中删除事件函数，位于evmap.c。代码如下：
 
