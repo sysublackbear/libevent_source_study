@@ -118,3 +118,5 @@ main(int argc, char **argv)
 	return (0);
 }
 ```
+
+没啥好说的，跟上面的例子类似。
