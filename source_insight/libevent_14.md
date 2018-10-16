@@ -51,4 +51,5 @@
 ![14-2.png](https://github.com/sysublackbear/libevent_source_study/blob/master/libevent_pic/14-2.png)
 
 更具体的序列图：
+
 ![14-3.png](https://github.com/sysublackbear/libevent_source_study/blob/master/libevent_pic/14-3.png)
