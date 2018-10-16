@@ -16,7 +16,7 @@
 全过程如下：
 信号     —>     信号捕捉函数     —>     写入内部管道     —>     内部信号回调函数     —>     激活外部信号回调函数
 
-![Alt text](./1538497121699.png)
+![5-1.png](https://github.com/sysublackbear/libevent_source_study/blob/master/libevent_pic/5-1.png)
 
 ### 1.29.初始化内部信号事件函数——evsig_init_函数
 
