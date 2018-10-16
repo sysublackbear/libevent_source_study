@@ -239,7 +239,7 @@ fifo_read(evutil_socket_t fd, short event, void *arg)
 
 每个进程各自有不同的用户地址空间，任何一个进程的全局变量在另一个进程中都看不到，所以进程之间要交换数据必须通过内核，在内核中开辟一块缓冲区，进程1把数据从用户空间拷到内核缓冲区，进程2再从内核缓冲区把数据读走，内核提供的这种机制称为**进程间通信（IPC，InterProcess Communication）**。如下图所示。
 
-![Alt text](./1539528084336.png)
+![10-1.png](https://github.com/sysublackbear/libevent_source_study/blob/master/libevent_pic/10-1.png)
 
 二、管道是一种最基本的IPC机制，由`pipe`函数创建，其中`pipe`属于匿名管道：
 
@@ -253,7 +253,7 @@ int pipe(int filedes[2]);
 
 开辟了管道之后如何实现两个进程间的通信呢？比如可以按下面的步骤通信。
 
-![Alt text](./1539528151414.png)
+![10-2.png](https://github.com/sysublackbear/libevent_source_study/blob/master/libevent_pic/10-2.png)
 
 
 
