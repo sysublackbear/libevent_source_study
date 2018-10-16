@@ -1,8 +1,8 @@
-#libevent(3)
+# libevent(3)
 @(源码)
 
 
-###1.7.事件类型的各个标志位含义
+### 1.7.事件类型的各个标志位含义
 
 位于event.h，我们重点记住几个枚举值的含义：
 
@@ -74,7 +74,7 @@
 ```
 
 
-###1.8.回调事件的状态标识
+### 1.8.回调事件的状态标识
 
 位于event_struct.h，代码如下：
 
@@ -100,7 +100,7 @@
 ```
 
 
-###1.9.有关事件的操作函数
+### 1.9.有关事件的操作函数
 
 位于event.c，代码如下：
 ```cpp
@@ -131,7 +131,7 @@ static const struct eventop *eventops[] = {
 };
 ```
 
-###1.10.后台方法特征列表
+### 1.10.后台方法特征列表
 
 位于event.h，代码如下：
 
@@ -179,7 +179,7 @@ enum event_method_feature {
 ```
 
 
-###1.11.event_base的工作模式
+### 1.11.event_base的工作模式
 
 位于event.h，代码如下：
 
@@ -255,7 +255,7 @@ enum event_base_config_flag {
 };
 ```
 
-###1.12.事件关闭时的回调函数模式类型
+### 1.12.事件关闭时的回调函数模式类型
 
 位于event-internal.h，代码如下：
 
@@ -298,7 +298,7 @@ enum event_base_config_flag {
 ```
 
 
-###1.13.event_callback的数据结构
+### 1.13.event_callback的数据结构
 
 位于event_struct.h，代码如下：
 ```cpp
@@ -329,7 +329,7 @@ struct event_callback {
 ```
 
 
-###1.14.event结构体
+### 1.14.event结构体
 
 位于event_struct.h，代码如下：
 
@@ -394,7 +394,7 @@ struct event {
 };
 ```
 
-###1.15.eventop结构体
+### 1.15.eventop结构体
 
 位于event_internal.h，代码如下：
 
@@ -488,7 +488,7 @@ struct eventop {
 ```
 
 
-###1.16.event_base结构体
+### 1.16.event_base结构体
 
 位于event-internal.h，代码如下：
 
@@ -697,7 +697,7 @@ struct event_base {
 ```
 
 
-###1.17.event_config_entry结构体
+### 1.17.event_config_entry结构体
 
 位于event-internal.h，代码如下：
 
@@ -710,7 +710,7 @@ struct event_config_entry {
 };
 ```
 
-###1.18.event_config结构体
+### 1.18.event_config结构体
 
 位于event-internal.h，代码如下：
 
