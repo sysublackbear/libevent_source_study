@@ -1,8 +1,8 @@
-#libevent(7)
+# libevent(7)
 @(源码)
 
 
-###1.37.signal_cb函数
+### 1.37.signal_cb函数
 
 位于原demo的`signal_event = evsignal_new(base, SIGINT, signal_cb, (void *)base);`，位于hello-world.c，代码如下：
 
@@ -20,7 +20,7 @@ signal_cb(evutil_socket_t sig, short events, void *user_data)
 }
 ```
 
-####1.37.1.event_base_loopexit函数
+#### 1.37.1.event_base_loopexit函数
 
 位于event.c，代码如下：
 
@@ -118,7 +118,7 @@ event_base_once(struct event_base *base, evutil_socket_t fd, short events,
 }
 ```
 
-#####1.37.1.1.event_loopexit_cb函数
+##### 1.37.1.1.event_loopexit_cb函数
 
 位于event.c，代码如下：
 
@@ -132,7 +132,7 @@ event_loopexit_cb(evutil_socket_t fd, short what, void *arg)
 ```
 
 
-###1.38.listener_cb函数
+### 1.38.listener_cb函数
 
 位于原demo的`listener = evconnlistener_new_bind(base, listener_cb, (void *)base, LEV_OPT_REUSEABLE|LEV_OPT_CLOSE_ON_FREE, -1, (struct sockaddr*)&sin, sizeof(sin));`，hello-world.c，代码如下：
 
@@ -249,7 +249,7 @@ listener_read_cb(evutil_socket_t fd, short what, void *p)
 我们可以看到，`listener_read_cb`本质上就是一直accept连接，然后进行回调。所谓的外部回调函数。而这里的cb函数，就是`listener_cb`函数。
 
 
-####1.38.1.bufferevent_socket_new函数
+#### 1.38.1.bufferevent_socket_new函数
 
 位于bufferevent_sock.c，代码如下：
 
@@ -295,7 +295,7 @@ bufferevent_socket_new(struct event_base *base, evutil_socket_t fd,
 本来想介绍的，发现有篇文章对`bufferevent`的介绍非常好，详见：https://blog.csdn.net/feitianxuxue/article/details/9386843
 
 
-###1.39.conn_writecb函数
+### 1.39.conn_writecb函数
 
 位于hello-world.c，是`bufferevent`的`writecb`。代码如下：
 
@@ -312,7 +312,7 @@ conn_writecb(struct bufferevent *bev, void *user_data)
 }
 ```
 
-###1.40.conn_eventcb函数
+### 1.40.conn_eventcb函数
 
 位于hello-world.c，是`bufferevent`的`errorcb`。代码如下：
 
@@ -333,7 +333,7 @@ conn_eventcb(struct bufferevent *bev, short events, void *user_data)
 }
 ```
 
-###1.41.综述
+### 1.41.综述
 
 hello-world.c这个例子，本质就是：新建一个`listerner`对象，连接9995端口，建立`socket`，然后一直往fd写入`"Hello World!\n"`，同时建立监听信号事件，对于SIGINT（比如用户键入CTRL-C），结束事件循环。这一切过程都是通过`event_base`进行调度，调度函数`event_base_dispatch`，里面本质执行`event_base_loop`。
 
