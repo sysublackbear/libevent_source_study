@@ -13,7 +13,7 @@
 
 ## 9.事件状态之间的转换
 
-![Alt text](./1539609965842.png)
+![14-1.png](https://github.com/sysublackbear/libevent_source_study/blob/master/libevent_pic/14-1.png)
 
 ## 10.reactor反应堆模式
 
@@ -48,7 +48,7 @@
 
 如果还是没有理解Reactor构架模式，没有关系，源代码会说明所有问题。此时可再分析一遍Reactor构架模式，然后继续以下内容。
 
-![Alt text](./1539611111389.png)
+![14-2.png](https://github.com/sysublackbear/libevent_source_study/blob/master/libevent_pic/14-2.png)
 
 更具体的序列图：
-![Alt text](./1539611569169.png)
+![14-3.png](https://github.com/sysublackbear/libevent_source_study/blob/master/libevent_pic/14-3.png)
