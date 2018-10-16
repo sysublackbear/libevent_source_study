@@ -1,4 +1,4 @@
-#libevent(13)
+# libevent(13)
 @(源码)
 
 
@@ -137,7 +137,7 @@ int main(int argc, const char **argv)
 }
 ```
 
-###7.1.connect_cb函数
+### 7.1.connect_cb函数
 
 位于http-connect.c，代码如下：
 
