@@ -1,4 +1,4 @@
-#libevent(11)
+# libevent(11)
 @(源码)
 
 
@@ -440,7 +440,7 @@ main(int argc, char **argv)
 }
 ```
 
-###5.1.evhttp_new函数
+### 5.1.evhttp_new函数
 
 位于http.c，代码如下：
 
@@ -536,7 +536,7 @@ struct evhttp {
 ```
 
 
-###5.2.evhttp_set_cb函数
+### 5.2.evhttp_set_cb函数
 
 位于http.c，代码如下：
 
@@ -577,7 +577,7 @@ evhttp_set_cb(struct evhttp *http, const char *uri,
 }
 ```
 
-###5.3.dump_request_cb函数
+### 5.3.dump_request_cb函数
 
 位于http-server.c，代码如下：
 
@@ -630,7 +630,7 @@ dump_request_cb(struct evhttp_request *req, void *arg)
 }
 ```
 
-###5.4.evhttp_set_gencb函数
+### 5.4.evhttp_set_gencb函数
 
 位于http.c，代码如下：
 
@@ -645,7 +645,7 @@ evhttp_set_gencb(struct evhttp *http,
 }
 ```
 
-###5.5.send_document_cb函数
+### 5.5.send_document_cb函数
 
 位于http-server.c，代码如下：
 
@@ -821,7 +821,7 @@ done:
 }
 ```
 
-###5.6.evhttp_set_cb和evhttp_set_gencb函数之间的差异
+### 5.6.evhttp_set_cb和evhttp_set_gencb函数之间的差异
 
 基本上就是对应特定的URI使用`evhttp_set_cb`注册回调那么就会流程会走到这里， 那么没有注册过的URI将会走到`evhttp_set_gencb`注册流程。
 
@@ -831,7 +831,7 @@ done:
 你同样可以使用函数 `evhttp_set_gencb()` 注册一个通用回调处理函数，在没有为指定 URI 注册回调函数的情况下，该回调函数会被调用。 
 
 
-###5.7.evhttp_bind_socket_with_handle函数
+### 5.7.evhttp_bind_socket_with_handle函数
 
 位于http.c，代码如下：
 
@@ -866,7 +866,7 @@ evhttp_bind_socket_with_handle(struct evhttp *http, const char *address, ev_uint
 }
 ```
 
-####5.7.1.evhttp_accept_socket_with_handle函数
+#### 5.7.1.evhttp_accept_socket_with_handle函数
 
 位于http.c，代码如下：
 
@@ -900,7 +900,7 @@ evhttp_accept_socket_with_handle(struct evhttp *http, evutil_socket_t fd)
 ```
 
 
-#####5.7.1.1.evhttp_bind_listener函数
+##### 5.7.1.1.evhttp_bind_listener函数
 
 位于http.c，代码如下：
 
@@ -923,6 +923,6 @@ evhttp_bind_listener(struct evhttp *http, struct evconnlistener *listener)
 }
 ```
 
-###5.8.综述
+### 5.8.综述
 
 这里是介绍了最简单的http-server的例子，通过将回调函数(`cb`)绑定到`uri`上面，当http的请求过来的时候，会解析http的头部，判断是走到哪个`uri`上面（通过正则表达式），然后触发不同的回调方法，即相当于执行不同的http方法。比如上面的绑定到`/dump`的`dump_request_cb`方法，以及通用的响应方法`send_document_cb`，即`echo`方法。
