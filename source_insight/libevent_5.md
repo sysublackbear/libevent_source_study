@@ -1,8 +1,8 @@
-#libevent(5)
+# libevent(5)
 @(源码)
 
 
-###1.28.信号事件机制分析
+### 1.28.信号事件机制分析
 
 简单来说，就是将外部信号转换为内部io事件来处理。
 
@@ -18,7 +18,7 @@
 
 ![Alt text](./1538497121699.png)
 
-###1.29.初始化内部信号事件函数——evsig_init_函数
+### 1.29.初始化内部信号事件函数——evsig_init_函数
 
 位于signal.c，`evsig_init_`函数就是初始化内部信号事件，`epoll`、`poll`、`select`等后台方法在初始化时都会执行内部信号事件的初始化，为下一步信号事件注册做准备。代码如下：
 
@@ -125,7 +125,7 @@ evsig_init_(struct event_base *base)
 ```
 
 
-###1.30.创建内部管道函数——evutil_make_internal_pipe_
+### 1.30.创建内部管道函数——evutil_make_internal_pipe_
 
 位于evutil.c，主要是创建内部管道，用来作为外部信号捕捉函数与内部IO事件回调函数之间通知管道。代码如下：
 
@@ -200,7 +200,7 @@ evutil_make_internal_pipe_(evutil_socket_t fd[2])
 ```
 
 
-###1.31.信号绑定event_base函数——event_assign函数
+### 1.31.信号绑定event_base函数——event_assign函数
 
 详见1.5
 
@@ -278,7 +278,7 @@ event_assign(struct event *ev, struct event_base *base, evutil_socket_t fd, shor
 ```
 
 
-###1.32.回调函数——evsig_cb函数
+### 1.32.回调函数——evsig_cb函数
 
 内部信号通知管道检测到有信号发生时的回调函数，位于signal.c，代码如下：
 
@@ -365,7 +365,7 @@ evmap_signal_active_(struct event_base *base, evutil_socket_t sig, int ncalls)
 
 `event_active_nolock_`详见1.36.3.2
 
-###1.33.evsig_add——信号事件注册函数
+### 1.33.evsig_add——信号事件注册函数
 
 位于signal.c，当执行`evsigsel->add`的时候，其实是调用的这个函数。
 
@@ -438,7 +438,7 @@ err:
 ```
 
 
-###1.34.evsig_set_handler_——设置外部信号的捕捉处理句柄
+### 1.34.evsig_set_handler_——设置外部信号的捕捉处理句柄
 
 位于signal.c，代码如下：
 
@@ -521,7 +521,7 @@ evsig_set_handler_(struct event_base *base,
 ```
 
 
-###1.35.evsig_handler函数
+### 1.35.evsig_handler函数
 
 这是外部信号发生时的处理函数，主要用于将信号值写入`base->sig.ev_signal_pair[1]`，以达到通知外部信号发生的目的。
 
@@ -570,7 +570,7 @@ evsig_handler(int sig)
 }
 ```
 
-###1.36.event_base_dispatch——事件调度函数
+### 1.36.event_base_dispatch——事件调度函数
 
 位于event.c，代码如下：
 
@@ -753,7 +753,7 @@ done:
 ```
 
 
-####1.36.1.timeout_next函数
+#### 1.36.1.timeout_next函数
 
 位于event.c，主要是获取下一个超时事件超过超时时间的时间间隔；如果没有超时事件，则存储超时时间间隔则为空。代码如下：
 
@@ -803,7 +803,7 @@ out:
 ```
 
 
-####1.36.2.event_queue_make_later_events_active函数
+#### 1.36.2.event_queue_make_later_events_active函数
 
 位于event.c，主要是将下一次激活事件队列中的事件都移动到激活队列中。代码如下：
 
@@ -847,7 +847,7 @@ struct event_callback {
 };
 ```
 
-####1.36.3.epoll_dispatch函数
+#### 1.36.3.epoll_dispatch函数
 
 位于epoll.c，epoll的调度方法，代码如下：
 
@@ -966,7 +966,7 @@ epoll_dispatch(struct event_base *base, struct timeval *tv)
 ```
 
 
-#####1.36.3.1.epoll_apply_changes函数
+##### 1.36.3.1.epoll_apply_changes函数
 
 位于epoll.c，代码如下：
 
