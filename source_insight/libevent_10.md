@@ -1,4 +1,4 @@
-#libevent(10)
+# libevent(10)
 @(源码)
 
 
@@ -171,7 +171,7 @@ main(int argc, char **argv)
 ```
 
 
-###4.1.signal_cb函数
+### 4.1.signal_cb函数
 
 ```cpp
 static void
@@ -184,7 +184,7 @@ signal_cb(evutil_socket_t fd, short event, void *arg)
 
 这个跟之前的例子一样，没什么好说的。
 
-###4.2.fifo_read函数
+### 4.2.fifo_read函数
 
 位于event-read-fifo.c，代码如下：
 
@@ -233,7 +233,7 @@ fifo_read(evutil_socket_t fd, short event, void *arg)
 这个例子也没什么好说的，就是读取管道的内容，并且打印出来。
 
 
-###4.3.关于管道
+### 4.3.关于管道
 
 一、进程间通信
 
