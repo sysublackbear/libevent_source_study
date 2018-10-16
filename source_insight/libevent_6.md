@@ -186,7 +186,6 @@ event_queue_insert_active(struct event_base *base, struct event_callback *evcb)
 }
 ```
 
-其中，`
 
 
 #### 1.36.4.timeout_process函数
