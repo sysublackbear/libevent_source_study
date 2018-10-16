@@ -5,7 +5,7 @@
 ### 1.4.evconnlistener_new_bind函数
 
 关于TCP网络编程，server端和client端分别进行的流程：
-![Alt text](./1538923728425.png)
+![2-1.png](https://github.com/sysublackbear/libevent_source_study/blob/master/libevent_pic/2-1.png)
 
 
 位于listener.c，代码如下：
