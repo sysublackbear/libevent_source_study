@@ -1,4 +1,4 @@
-#libevent(12)
+# libevent(12)
 @(源码)
 
 
@@ -547,7 +547,7 @@ cleanup:
 利用`bufferevent`，对与https-client的一堆fd可读或者可写进行监听处理。
 
 
-###6.1.http_request_done函数
+### 6.1.http_request_done函数
 
 位于https-client.c，代码如下：
 
