@@ -340,9 +340,9 @@ hello-world.c这个例子，本质就是：新建一个`listerner`对象，连�
 下面图详解了`event_base`,以及一些关键操作的图解：
 
 
-![Alt text](./1539410375994.png)
+![7-1.png](https://github.com/sysublackbear/libevent_source_study/blob/master/libevent_pic/7-1.png)
 
-![Alt text](./1539422709371.png)
+![7-2.png](https://github.com/sysublackbear/libevent_source_study/blob/master/libevent_pic/7-2.png)
 
 整个hello-world.c的执行顺序：
 
