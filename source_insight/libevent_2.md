@@ -322,7 +322,7 @@ event_assign(struct event *ev, struct event_base *base, evutil_socket_t fd, shor
 
 新建一个事件，当接收到SIGINIT信号（*程序终止(interrupt)信号, 在用户键入INTR字符(通常是Ctrl-C)时发出，用于通知前台进程组终止进程。*）的时候，调用回调函数`signal_cb`，函数的参数为`base`。
 
-###1.6.event_add函数
+### 1.6.event_add函数
 
 位于event.c，代码如下：
 ```cpp
@@ -376,15 +376,25 @@ event_add(struct event *ev, const struct timeval *tv)
 
 `event_add`做这样的一个事情：
 >将事件增加到一系列等待的事件中；
+
 >函数event_add规划以下事情：当event_assign或者event_new函数
+
 >创建’ev’时指定的条件发生时，或者超时时间达到时，事件’ev’的执行情况。
+
 >如果超时时间为NULL，那么没有超时事件发生，只能等匹配的事件发生时才会调用回调函数；
+
 >参数ev中的事件必须已经通过event_assign或者event_new进行过初始化了，而且只能当事件不再处于
+
 >等待状态时才能调用event_assign或者event_new函数。
+
 >如果ev参数中的事件有特定的超时时间，调用event_add时如果指定tc不为NULL的话，就会替代老的超时时间；
+
 >参数 ev：通过event_assign或者event_new初始化过的事件
+
 >参数timeout：等待事件执行的最长时间，如果NULL则从来不会超时，即永久等待
+
 >成功则返回0，失败则－1
+
 >相关查看event_del，event_assign，event_new
 
 
