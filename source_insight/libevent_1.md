@@ -214,7 +214,7 @@ struct event_config *
 event_config_new(void)
 {
 	// 使用内部分配api mm_calloc分配event_config对象，并赋初始值1
-	蹦迪 *cfg = mm_calloc(1, sizeof(*cfg));
+	struct event_config *cfg = mm_calloc(1, sizeof(*cfg));
 	// 新建event_config结构
 	if (cfg == NULL)
 		return (NULL);
