@@ -1048,7 +1048,7 @@ struct event_signal_map {
 ```
 
 
-####1.2.5.初始化变化列表函数——event_changelist_init_
+初始化变化列表函数——event_changelist_init_
 
 位于evmap.c，代码如下：
 
