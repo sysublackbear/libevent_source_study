@@ -339,6 +339,8 @@ conn_eventcb(struct bufferevent *bev, short events, void *user_data)
 hello-world.c这个例子，本质就是：这是一个server程序，新建了一个`listerner`对象，监听9995端口，等待客户端的连接，当accept成功后，与客户端建立连接，会触发accept的回调函数`listener_cb`，里面会新建一个fd对象，同时分别注册：读事件完成回调函数(无), 写事件完成回调函数(`conn_writecb`)和连接建立终止回调函数(`conn_eventcb`)，然后往buffer里面写入字符串“Hello, World!\n”，返回给客户端。同时触发写完的回调函数(`conn_writecb`)，就是尝试从输出缓冲区获取数据，默认获取不到，然后就会在Server端打印一条"flushed answer\n",然后关闭连接。就是这么简单。
 同时建立监听信号事件，对于SIGINT（比如用户键入CTRL-C），结束事件循环。这一切过程都是通过`event_base`进行调度，调度函数`event_base_dispatch`，里面本质执行`event_base_loop`。
 
+由此可以看出，libevent内部使用的epoll是ET模式。
+
 详细的服务端和客户端交互过程如下：
 **Server端**:
 ```shell
